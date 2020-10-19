@@ -1,5 +1,9 @@
+import { CATEGORIES } from "../../data/dummy-data";
+
 const initialState = {
-  categories: [],
+  categoriesList: CATEGORIES,
 };
 
-export default (state = initialState, action) => {};
+export default (state = initialState, action) => {
+  return state;
+};

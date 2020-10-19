@@ -1,9 +1,17 @@
 import React, { useState } from "react";
 import { AppLoading } from "expo";
+import * as Font from "expo-font";
 import { Provider } from "react-redux";
 import { createStore, combineReducers } from "redux";
+import MainNavigator from "./navigation/MainNavigator";
+import categoriesReducer from "./store/reducers/categories";
+import { enableScreens } from "react-native-screens";
 
-const rootReducer = combineReducers({});
+enableScreens();
+
+const rootReducer = combineReducers({
+  categories: categoriesReducer,
+});
 
 const store = createStore(rootReducer);
 
@@ -29,5 +37,9 @@ export default function App() {
     );
   }
 
-  return <Provider store={store}></Provider>;
+  return (
+    <Provider store={store}>
+      <MainNavigator />
+    </Provider>
+  );
 }
