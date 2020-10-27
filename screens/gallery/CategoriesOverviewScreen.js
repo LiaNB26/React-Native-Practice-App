@@ -15,7 +15,8 @@ export default function CategoriesOverviewScreen(props) {
           props.navigation.navigate({
             routeName: "Galleries",
             params: {
-              category: itemData.item,
+              categoryId: itemData.item.id,
+              categoryTitle: itemData.item.title,
             },
           });
         }}

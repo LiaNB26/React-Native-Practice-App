@@ -1,4 +1,5 @@
 import React from "react";
+import Colors from "../constants/Colors";
 import {
   StyleSheet,
   Text,
@@ -7,7 +8,6 @@ import {
   Platform,
   TouchableNativeFeedback,
 } from "react-native";
-import Colors from "../constants/Colors";
 
 export default function CategoryGridTile(props) {
   let TouchableCmp = TouchableOpacity;

@@ -1,5 +1,7 @@
+import { ALL_GALLARIES } from "../../data/dummy-data";
+
 const initialState = {
-  galleries: [],
+  galleriesList: ALL_GALLARIES,
 };
 
 export default (state = initialState, action) => {

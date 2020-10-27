@@ -1,9 +1,10 @@
 class Gallery {
-  constructor(id, title, imageUrl, description) {
+  constructor(id, title, imageUrl, numOfImages, allImages) {
     this.id = id;
     this.title = title;
     this.imageUrl = imageUrl;
-    this.description = description;
+    this.numOfImages = numOfImages;
+    this.allImages = allImages;
   }
 }
 

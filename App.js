@@ -5,12 +5,14 @@ import { Provider } from "react-redux";
 import { createStore, combineReducers } from "redux";
 import MainNavigator from "./navigation/MainNavigator";
 import categoriesReducer from "./store/reducers/categories";
+import galleriesReducer from "./store/reducers/galleries";
 import { enableScreens } from "react-native-screens";
 
 enableScreens();
 
 const rootReducer = combineReducers({
   categories: categoriesReducer,
+  galleries: galleriesReducer,
 });
 
 const store = createStore(rootReducer);
