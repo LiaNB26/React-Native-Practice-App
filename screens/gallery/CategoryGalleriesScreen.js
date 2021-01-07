@@ -1,14 +1,24 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import GalleryItem from "../../components/GalleryItem";
 
 export default function CategoryGalleriesScreen(props) {
+  const dispatch = useDispatch();
+
   const renderGalleryItem = (itemData) => {
     return (
       <GalleryItem
-        onSelectGallery={() => {}}
+        onSelectGallery={() => {
+          props.navigation.navigate({
+            routeName: "Images",
+            params: {
+              galleryImages: itemData.item.allImages,
+              galleryTitle: itemData.item.title,
+            },
+          });
+        }}
         title={itemData.item.title}
         numOfImages={itemData.item.numOfImages}
         image={itemData.item.imageUrl}
@@ -19,7 +29,9 @@ export default function CategoryGalleriesScreen(props) {
   const selectedCategoryId = props.navigation.getParam("categoryId");
 
   const selectedCategory = useSelector((state) =>
-    state.categories.categoriesList.find((cat) => cat.id === selectedCategoryId)
+    state.categories.categoriesList.find(
+      (category) => category.id === selectedCategoryId
+    )
   );
 
   const allGallerires = useSelector((state) => state.galleries.galleriesList);
@@ -44,7 +56,7 @@ CategoryGalleriesScreen.navigationOptions = (navData) => {
   const categoryTitle = navData.navigation.getParam("categoryTitle");
 
   return {
-    headerTitle: categoryTitle,
+    headerTitle: categoryTitle + " Galleries",
   };
 };
 

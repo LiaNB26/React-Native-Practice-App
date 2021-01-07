@@ -1,0 +1,1 @@
+export default SAVE_GALLERY_IMAGES = "SAVE_GALLERY_IMAGES";
